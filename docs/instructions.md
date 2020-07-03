@@ -7,7 +7,7 @@
 - Input should have validation (No empty values allowed)
 - User should be able to submit the form
 
-### Result View
+### Result
 - Should display some information (at least: picture & full name) about the found user
 
 ## Bonus
