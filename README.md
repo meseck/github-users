@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 For detailed information about project structure, process, tools and thoughts, please read the [Documentation.md](docs/documentation.md) file.
 
-## 🚀 Start it
+## 🚀 Start It
 
 1. Clone this project  
 `git clone https://github.com/fools-mate/github-users`
