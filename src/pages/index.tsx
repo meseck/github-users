@@ -1,6 +1,6 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
-export default function Home() {
+function Home(): JSX.Element {
   return (
     <div className="container">
       <Head>
@@ -20,7 +20,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-        Created by fools-mate
+          Created by fools-mate
         </a>
       </footer>
 
@@ -170,5 +170,7 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
+
+export default Home;
