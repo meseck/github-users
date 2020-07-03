@@ -37,6 +37,9 @@ Check for errors with:
 Try to fix automatically with:  
 `npm run fix:ts` or `yarn fix:ts`
 
+Reformat your code with:
+`npm run prettier:fix` or `yarn prettier:fix`  
+
 ## CSS / CSS-in-JS
 Check for errors with:  
 `npm run lint:css` or `yarn lint:css`  
