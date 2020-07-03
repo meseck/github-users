@@ -9,9 +9,9 @@
     "test": "jest --watch",
     "test:coverage": "jest --coverage",
     "lint:ts": "eslint './src/**/*.{ts,tsx}'",
-    "lint:css":"stylelint './src/**/*.{ts,tsx}'",
-    "fix:ts": "eslint --fix './src/**/*.{ts,tsx}",
-    "fix:css": "stylelint --fix './src/**/*.{ts,tsx}"
+    "lint:css":"stylelint './src/**/*.{css,sass,scss,ts,tsx}'",
+    "fix:ts": "eslint --fix './src/**/*.{ts,tsx}'",
+    "fix:css": "stylelint --fix './src/**/*.{css,sass,scss,ts,tsx}'"
   },
   "dependencies": {
     "next": "9.4.4",
