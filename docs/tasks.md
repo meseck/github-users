@@ -5,7 +5,7 @@
     - [x] Write README.md
     - [x] Structure documentation
     - [x] Write down first tasks
-    - [ ] Structure project
+    - [x] Structure project
     - [ ] Add & config TypeScript
     - [ ] Add & config ESLint, Stylelint and Prettier
     - [ ] Add & config Jest
