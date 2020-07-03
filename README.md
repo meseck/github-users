@@ -11,8 +11,10 @@ For detailed information about project structure, process, tools and thoughts, p
 1. Clone this project  
 `git clone https://github.com/fools-mate/github-users`
 
-> You can also use SSH if you like, when its configured. [(HowTo)](htps://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)  
-`git clone git@github.com:fools-mate/github-users.git`
+> You can also use SSH if you like, when its configured. 
+> `git clone git@github.com:fools-mate/github-users.git`
+
+[(HowTo)](htps://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)  
 
 2. Open project directory  
 `cd github-users`
@@ -38,6 +40,6 @@ Launches the test runner in the interactive watch mode.
 
 Builds the app for production to the `build` folder.  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy this Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check out this [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
