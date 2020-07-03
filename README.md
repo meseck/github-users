@@ -26,7 +26,23 @@ For detailed information about project structure, process, tools and thoughts, p
 5. Open [http://localhost:3000](http://localhost:3000) 
 
 The project is now started in development mode. 
-If you want to deploy it, look below.
+If you want to deploy it, look below.    "test:coverage": "NODE_ENV=test jest --config __tests__/jest/jest.config.js --coverage",
+
+## 🔎 Check It
+
+## TypeScript
+Check for errors with:  
+`npm run lint:ts` or `yarn lint:ts`  
+
+Try to fix automatically with:  
+`npm run fix:ts` or `yarn fix:ts`
+
+## CSS / CSS-in-JS
+Check for errors with:  
+`npm run lint:css` or `yarn lint:css`  
+
+Try to fix automatically with:  
+`npm run fix:fix` or `yarn fix:css`
 
 ## ✅ Test It 
 `npm run test` or `yarn test`
