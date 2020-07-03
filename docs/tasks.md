@@ -6,9 +6,11 @@
     - [x] Structure documentation
     - [x] Write down first tasks
     - [x] Structure project
-    - [ ] Add & config TypeScript
-    - [ ] Add & config ESLint, Stylelint and Prettier
-    - [ ] Add & config Jest
+    - [x] Add & config TypeScript
+    - [x] Add & config ESLint, Stylelint and Prettier
+    - [x] Add & config Jest
+    - [ ] Add scrips to package.json and add them to README.md
+    - [ ] Add Styled components
 
 2. Get Data
     - [ ] Get API key & save it in an environment variable (Dot.env)
