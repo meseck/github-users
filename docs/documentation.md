@@ -38,14 +38,17 @@ Here a small comparison:
 
 ### Other Tools:
 - TypeScript
-- Emotion
 - Prettier
 - Eslint
 - Stylelint
 - Jest
+- Styled components
 - Conventional Commits 
 
 ## 💭 Thoughts
 
 ## 🔴 Gotchas
+
+## 🎉 Acknowledgements 
+- ***De Code Natura (Francesco Agnoletto)*** for this great article: [How to setup NextJS with TypeScript and ESLint + Prettier](https://decodenatura.com/how-to-set-up-nextjs-typescript-eslint-prettier/)
 
