@@ -41,5 +41,4 @@ Launches the test runner in the interactive watch mode.
 Builds the app for production to the `build` folder.  
 
 The easiest way to deploy this Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
 Check out this [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
