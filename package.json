@@ -11,7 +11,9 @@
     "lint:ts": "eslint './src/**/*.{ts,tsx}'",
     "lint:css":"stylelint './src/**/*.{css,sass,scss,ts,tsx}'",
     "fix:ts": "eslint --fix './src/**/*.{ts,tsx}'",
-    "fix:css": "stylelint --fix './src/**/*.{css,sass,scss,ts,tsx}'"
+    "fix:css": "stylelint --fix './src/**/*.{css,sass,scss,ts,tsx}'",
+    "prettier:check": "prettier --check './src/**/*.{ts,tsx,json}'",
+    "prettier:fix": "prettier --write './src/**/*.{ts,tsx,json}'"
   },
   "dependencies": {
     "next": "9.4.4",
