@@ -1,34 +1,40 @@
 # Documentation
 
 ## 🏛 Project Structure
-    root
-    ├── docs
-    │  ├── img
-    │  │  └── cra-next-gatsby-comparison.jpg
-    │  ├── documentation.md
-    │  └── instructions.md
-    ├── pages
-    │  ├── api
-    │  │  └── hello.js
-    │  └── index.js
-    ├── public
-    │  └── favicon.ico
-    ├── .gitignore
-    ├── conventionalcommit.json
-    ├── next.config.js
-    ├── package.json
-    ├── README.md
-    └── yarn.lock
+
+    📂 root
+    ├── 📁 build
+    ├── 📂 docs
+    │  ├── 📁 imgages
+    │  └── 📃 markdown files..
+    ├── 📁 public
+    ├── 📁 src
+    │  ├── 📁 __tests__
+    │  ├── 📂 assets
+    │  │  ├── 📁 icons
+    │  │  └── 📁 images
+    │  ├── 📁 components
+    │  ├── 📁 global
+    │  ├── 📁 pages
+    │  │  ├── 📂 users
+    │  │  │   └── 📃 [username].ts (dynamic route)
+    │  │  └── 🏠 index.ts
+    │  ├── 📁 styles
+    │  └── 📁 tests
+    ├── 📃 .gitignore
+    ├── 📃 configs...
+    ├── 📃 package.json
+    └── 📃 README.md
 
 ## 🛠 Tools
 
 ### Next.js
 The main reason why I choose Next.js is that unlike Gatsby, it's very good for dynamic content with the advantages of server-side rendering out of the box.
-At first, I thought about starting with CRA(create-react-app), but I didn't want to eject the project or use another dependency(react-app-rewired) to configure Webpack.
+At first, I thought about starting with CRA(create-react-app), but I didn't want to [eject](https://medium.com/curated-by-versett/dont-eject-your-create-react-app-b123c5247741) the project or use another dependency(react-app-rewired) to configure Webpack.
 
 Here a small comparison:
-![Create-react-app vs Next.js vs Gastby](img/cra-next-gatsby-comparison.jpg)
-> https://coffeencoding.com/cra-vs-next-js-vs-gatsby/
+![Create-react-app vs Next.js vs Gastby](images/cra-next-gatsby-comparison.jpg)
+<https://coffeencoding.com/cra-vs-next-js-vs-gatsby/>
 
 ### Other Tools:
 - TypeScript
