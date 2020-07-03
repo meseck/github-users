@@ -11,10 +11,8 @@ For detailed information about project structure, process, tools and thoughts, p
 1. Clone this project  
 `git clone https://github.com/fools-mate/github-users`
 
-> You can also use SSH if you like, when its configured. 
-> `git clone git@github.com:fools-mate/github-users.git`
-
-[(HowTo)](htps://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)  
+    You can also use SSH if you like, when its configured. [(HowTo)](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)   
+    `git clone git@github.com:fools-mate/github-users.git`
 
 2. Open project directory  
 `cd github-users`
