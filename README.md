@@ -30,7 +30,7 @@ If you want to deploy it, look below.
 
 ## 🔎 Check It
 
-## TypeScript
+### TypeScript
 Check for errors with:  
 `npm run lint:ts` or `yarn lint:ts`  
 
@@ -40,7 +40,7 @@ Try to fix automatically with:
 Reformat your code with:  
 `npm run prettier:fix` or `yarn prettier:fix`  
 
-## CSS / CSS-in-JS
+### CSS / Sass / CSS-in-JS
 Check for errors with:  
 `npm run lint:css` or `yarn lint:css`  
 
