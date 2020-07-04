@@ -26,7 +26,7 @@ For detailed information about project structure, process, tools and thoughts, p
 5. Open [http://localhost:3000](http://localhost:3000) 
 
 The project is now started in development mode. 
-If you want to deploy it, look below.    "test:coverage": "NODE_ENV=test jest --config __tests__/jest/jest.config.js --coverage",
+If you want to deploy it, look below.
 
 ## 🔎 Check It
 
