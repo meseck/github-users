@@ -21,7 +21,7 @@ describe('Hooks', () => {
         useFetchUser('fools-mate', { dedupingInterval: 0 })
       );
 
-      // Wait async useFetchUser Hook to be fulfilled | rejected
+      // Wait for async useFetchUser Hook to be fulfilled | rejected
       await waitForNextUpdate();
 
       act(() => {
@@ -61,7 +61,7 @@ describe('Hooks', () => {
         useFetchUser('non-existent-user', { dedupingInterval: 0 })
       );
 
-      // Wait async useFetchUser Hook to be fulfilled | rejected
+      // Wait for async useFetchUser Hook to be fulfilled | rejected
       await waitForNextUpdate();
 
       expect(result.current.isError).toStrictEqual(Error('HttpError'));
