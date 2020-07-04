@@ -49,5 +49,6 @@ Here a small comparison:
 ## 🔴 Gotchas
 
 ## 🎉 Acknowledgements 
-- ***De Code Natura (Francesco Agnoletto)*** for this great article: [How to setup NextJS with TypeScript and ESLint + Prettier](https://decodenatura.com/how-to-set-up-nextjs-typescript-eslint-prettier/)
+- ***Francesco Agnoletto*** for this great article about:  [How to setup NextJS with TypeScript and ESLint + Prettier](https://decodenatura.com/how-to-set-up-nextjs-typescript-eslint-prettier/)
+- ***Leigh Halliday*** that he made me aware of Mock Service Worker and offers a detailed tutorial about it:  [Don't Mock Fetch (or Axios): Use Mock Service Worker and Test Like a User](https://www.youtube.com/watch?v=v77fjkKQTH0)  
 
