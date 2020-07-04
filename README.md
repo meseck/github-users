@@ -48,7 +48,7 @@ Try to fix automatically with:
 `npm run fix:fix` or `yarn fix:css`
 
 ## ✅ Test It 
-`npm run test` or `yarn test`
+`npm test` or `yarn test`
 
 Launches the test runner in the interactive watch mode.
 
