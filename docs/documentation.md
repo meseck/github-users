@@ -48,7 +48,53 @@ Here a small comparison:
 
 ## 🔴 Gotchas
 
-## 🎉 Acknowledgements 
-- ***Francesco Agnoletto*** for this great article about:  [How to setup NextJS with TypeScript and ESLint + Prettier](https://decodenatura.com/how-to-set-up-nextjs-typescript-eslint-prettier/)
-- ***Leigh Halliday*** that he made me aware of Mock Service Worker and offers a detailed tutorial about it:  [Don't Mock Fetch (or Axios): Use Mock Service Worker and Test Like a User](https://www.youtube.com/watch?v=v77fjkKQTH0)  
+### Testing React Hooks
 
+You can only call hooks from function components or other hooks.  
+
+It can be quite difficult to wrap the Hook around a Component, so the Project uses the react-hooks-testing-library to do the hard work for us. 🎉
+
+<https://github.com/testing-library/react-hooks-testing-library>
+
+### Testing asynchronous React Hooks with react-hooks-testing-library
+
+Get the utility `waitForNextUpdate()` from th renderHook function - example from theproject:  
+```
+const {result, waitForNextUpdate()} = renderHook(() => useFetchUser('fools-mate'))`
+```
+
+Then we need to call `waitForNextUpdate()` before we can make our assertions.   
+`await waitForNextUpdate();`
+
+### Identical API responses between tests because SWR cache
+<https://github.com/vercel/swr/pull/231#issuecomment-591614747>
+
+If you use SWR in your Components or Hooks. Always remember to clear the cache of SWR before every test to prevent identical API responses.
+```
+import { cache } from 'swr';
+
+afterEach(() => cache.clear());
+```
+
+To fix: `Warning: An update to TestHook inside a test was not wrapped in act(...).`  
+Pass `{ dedupingInterval: 0 }` as option argument to your Hook:  
+```
+const { result } = renderHook(() => useFetchUser('fools-mate', { dedupingInterval: 0 }));
+```
+In Components use:
+```
+await act(async () => {
+    <SWRConfig value={{ dedupingInterval: 0 }}>
+      <Foo id="1" />
+    </SWRConfig>
+  });
+```
+
+[React Hooks Testing Library - Advance Hook - Async](https://react-hooks-testing-library.com/usage/advanced-hooks#async)  
+[React Hooks Testing Library - API - Async Utilities](https://react-hooks-testing-library.com/reference/api#async-utilities)
+
+## 🎉 Acknowledgements 
+- ***Francesco Agnoletto*** for this great article about:  
+[How to setup NextJS with TypeScript and ESLint + Prettier](https://decodenatura.com/how-to-set-up-nextjs-typescript-eslint-prettier/)
+- ***Leigh Halliday*** that he made me aware of Mock Service Worker and offers a detailed tutorial about it:  
+[Don't Mock Fetch (or Axios): Use Mock Service Worker and Test Like a User](https://www.youtube.com/watch?v=v77fjkKQTH0)  
