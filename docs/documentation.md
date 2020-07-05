@@ -29,7 +29,8 @@
 
 ### Next.js
 The main reason why I choose Next.js is that unlike Gatsby, it's very good for dynamic content with the advantages of server-side rendering out of the box.
-At first, I thought about starting with CRA(create-react-app), but I didn't want to [eject](https://medium.com/curated-by-versett/dont-eject-your-create-react-app-b123c5247741) the project or use another dependency(react-app-rewired) to configure Webpack.
+At first, I thought about starting with CRA(create-react-app), but I didn't want to [eject](https://medium.com/curated-by-versett/dont-eject-your-create-react-app-b123c5247741) 
+the project or use another dependency(react-app-rewired) to configure Webpack.
 
 Here a small comparison:
 ![Create-react-app vs Next.js vs Gastby](images/cra-next-gatsby-comparison.jpg)
@@ -58,7 +59,7 @@ It can be quite difficult to wrap the Hook around a Component, so the Project us
 
 ### Testing asynchronous React Hooks with react-hooks-testing-library
 
-Get the utility `waitForNextUpdate()` from th renderHook function - example from theproject:  
+Get the utility `waitForNextUpdate()` from th renderHook function - example from the project:  
 ```
 const {result, waitForNextUpdate()} = renderHook(() => useFetchUser('fools-mate'))`
 ```
@@ -69,7 +70,7 @@ Then we need to call `waitForNextUpdate()` before we can make our assertions.
 ### Identical API responses between tests because SWR cache
 <https://github.com/vercel/swr/pull/231#issuecomment-591614747>
 
-If you use SWR in your Components or Hooks. Always remember to clear the cache of SWR before every test to prevent identical API responses.
+If you use SWR in your Components or Hooks always remember to clear the cache of SWR before every test to prevent identical API responses.
 ```
 import { cache } from 'swr';
 
@@ -88,6 +89,16 @@ await act(async () => {
       <Foo id="1" />
     </SWRConfig>
   });
+```
+
+### Debouncing the SWR custom hook
+
+Don't forget to add a condition to the hook so SWR won't start a request at every render, or you will be temporarily blocked by the API...
+```
+const { userData, isError, isLoading } = useFetchUser(
+  debouncedSearchQuery ? debouncedSearchQuery : null
+);
+
 ```
 
 [React Hooks Testing Library - Advance Hook - Async](https://react-hooks-testing-library.com/usage/advanced-hooks#async)  
