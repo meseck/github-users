@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 import useSWR, { ConfigInterface } from 'swr';
+
 import { fetchUser } from './api';
 import { UserData } from './types';
 
@@ -20,4 +22,22 @@ export const useFetchUser = (
     isLoading: !error && !data,
     isError: error,
   };
+};
+
+export const useDebounceInput = (value: string, delay: number): string => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(
+    () => {
+      const debounce = setTimeout(() => {
+        setDebouncedValue(value);
+      }, delay);
+      return () => {
+        clearTimeout(debounce);
+      };
+    },
+    [value, delay] // Only re-call effect if value or delay changes
+  );
+
+  return debouncedValue;
 };
