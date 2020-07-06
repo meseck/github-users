@@ -1,28 +1,37 @@
 import { useState, useEffect } from 'react';
 import useSWR, { ConfigInterface } from 'swr';
-import { UsersGetByUsernameResponseData } from '@octokit/types';
+import {
+  SearchUsersResponseData,
+  UsersGetByUsernameResponseData,
+} from '@octokit/types';
 
-import { fetchUser } from './api';
+import { fetchUser, searchUser } from './api';
 import { usernameValidation } from './utils';
 
-type FetchUserReturn = {
-  userData: UsersGetByUsernameResponseData;
+type SearchUserReturn = {
+  searchData: SearchUsersResponseData;
   isLoading: boolean;
   isError: Error;
   isValidInput: boolean;
   validationErrorMsg: string;
 };
 
-export const useFetchUser = (
+type FetchUserReturn = {
+  userData: UsersGetByUsernameResponseData;
+  isLoading: boolean;
+  isError: Error;
+};
+
+export const useSearchUser = (
   username: string,
   options?: ConfigInterface
-): FetchUserReturn => {
+): SearchUserReturn => {
   const [validInput, setValidInput] = useState('');
   const [validationErrorMsg, setValidationErrorMsg] = useState('');
   // Use useSWR Hook for fetching data (client-side)
   const { data, error } = useSWR(
     validInput ? validInput : null,
-    fetchUser,
+    searchUser,
     options
   );
 
@@ -40,11 +49,25 @@ export const useFetchUser = (
   }, [username]);
 
   return {
-    userData: data,
+    searchData: data,
     isLoading: !error && !data,
     isError: error,
     isValidInput: !!validInput,
     validationErrorMsg: validationErrorMsg,
+  };
+};
+
+export const useFetchUser = (
+  username: string,
+  options?: ConfigInterface
+): FetchUserReturn => {
+  // Use useSWR Hook for fetching data (client-side)
+  const { data, error } = useSWR(username, fetchUser, options);
+
+  return {
+    userData: data,
+    isLoading: !error && !data,
+    isError: error,
   };
 };
 
