@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
-import { useDebounceInput, useSearchUser } from '../global/hooks';
+import { useSearchUser } from '../global/hooks/useSearchUser';
+import { useDebounceInput } from '../global/hooks/useDebounceInput';
 
 const InputField = styled.input`
   padding: 0.31rem 0.44rem;
