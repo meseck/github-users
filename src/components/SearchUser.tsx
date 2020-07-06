@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 import { useDebounceInput, useFetchUser } from '../global/hooks';
 
@@ -10,32 +10,29 @@ const InputField = styled.input`
 `;
 
 const SearchUser: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchInput, setSearchInput] = useState('');
   // On all input changes the debounce hook is called this prevents API calls at every keypress
-  const debouncedSearchQuery = useDebounceInput(searchQuery, 1000);
+  const debouncedSearchInput = useDebounceInput(searchInput, 1000);
   // After debouncing, the search query is updated and the request is sent to the GitHub API
   const { userData, isError, isLoading } = useFetchUser(
-    debouncedSearchQuery ? debouncedSearchQuery : null
+    debouncedSearchInput ? debouncedSearchInput : null
   );
 
-  useEffect(() => {
-    if (debouncedSearchQuery) {
-    }
-  }, [debouncedSearchQuery]);
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(event.target.value);
   };
 
   return (
     <div>
-      <InputField onChange={handleChange} />
-      {!searchQuery && <p>Please enter a username.</p>}
-      {searchQuery && isLoading && <p>Searching..</p>}
-      {searchQuery && !userData && (
+      <InputField
+        onChange={handleInputChange}
+        placeholder={!searchInput && 'Please enter a username'}
+      />
+      {searchInput && isLoading && <p>Searching..</p>}
+      {isError && (
         <>
           <p>No one with this username was found.</p>
-          <p>Do you want to register this name? </p>
+          <p>Do you want to register this username? </p>
           <a href="https://github.com/join" rel="noreferrer" target="_blank">
             Join GitHub
           </a>
