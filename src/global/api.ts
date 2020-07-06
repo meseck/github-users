@@ -1,11 +1,15 @@
 import { request } from '@octokit/request';
-import { UserData } from './types';
 
-export const fetchUser = async (username: string): Promise<UserData> => {
+import { UsersGetByUsernameResponseData } from '@octokit/types';
+
+export const fetchUser = async (
+  username: string
+): Promise<UsersGetByUsernameResponseData> => {
   // Fetch data from GitHub API with @octokit/request
   try {
     const result = await request('GET /users/{username}', {
       username: username,
+      accept: 'application/vnd.github.v3+json',
     });
     return result.data;
   } catch (error) {
