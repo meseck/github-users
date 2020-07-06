@@ -3,24 +3,48 @@ import useSWR, { ConfigInterface } from 'swr';
 
 import { fetchUser } from './api';
 import { UserData } from './types';
+import { usernameValidation } from './utils';
 
 type FetchUserReturn = {
   userData: UserData;
   isLoading: boolean;
-  isError: boolean;
+  isError: Error;
+  isValidInput: boolean;
+  validationErrorMsg: string;
 };
 
 export const useFetchUser = (
-  username: string | string[],
+  username: string,
   options?: ConfigInterface
 ): FetchUserReturn => {
+  const [validInput, setValidInput] = useState('');
+  const [validationErrorMsg, setValidationErrorMsg] = useState('');
   // Use useSWR Hook for fetching data (client-side)
-  const { data, error } = useSWR(username, fetchUser, options);
+  const { data, error } = useSWR(
+    validInput ? validInput : null,
+    fetchUser,
+    options
+  );
+
+  // Input validation
+  useEffect(() => {
+    if (username) {
+      if (usernameValidation(username) !== 'valid') {
+        setValidationErrorMsg(usernameValidation(username));
+        setValidInput('');
+      } else {
+        setValidationErrorMsg('');
+        setValidInput(username);
+      }
+    }
+  }, [username]);
 
   return {
     userData: data,
     isLoading: !error && !data,
     isError: error,
+    isValidInput: !!validInput,
+    validationErrorMsg: validationErrorMsg,
   };
 };
 
