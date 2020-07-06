@@ -14,9 +14,19 @@ const SearchUser: React.FC = () => {
   // On all input changes the debounce hook is called this prevents API calls at every keypress
   const debouncedSearchInput = useDebounceInput(searchInput, 1000);
   // After debouncing, the search query is updated and the request is sent to the GitHub API
-  const { userData, isError, isLoading } = useFetchUser(
-    debouncedSearchInput ? debouncedSearchInput : null
-  );
+  const {
+    userData,
+    isError,
+    isLoading,
+    isValidInput,
+    validationErrorMsg,
+  } = useFetchUser(debouncedSearchInput ? debouncedSearchInput : null, {
+    // Prevents call to API after page is focused or user is reconnected and also retries on errors
+    // This settings are good practice for development
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    shouldRetryOnError: false,
+  });
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchInput(event.target.value);
@@ -26,10 +36,10 @@ const SearchUser: React.FC = () => {
     <div>
       <InputField
         onChange={handleInputChange}
-        placeholder={!searchInput && 'Please enter a username'}
+        placeholder={!searchInput ? 'Please enter a username' : undefined}
       />
-      {searchInput && isLoading && <p>Searching..</p>}
-      {isError && (
+      {searchInput && isLoading && isValidInput && <p>Searching..</p>}
+      {isError && isValidInput && (
         <>
           <p>No one with this username was found.</p>
           <p>Do you want to register this username? </p>
@@ -38,6 +48,7 @@ const SearchUser: React.FC = () => {
           </a>
         </>
       )}
+      {!isValidInput && <p>{validationErrorMsg}</p>}
       {!isLoading && !isError && (
         <>
           <h1>{userData.name}</h1>
