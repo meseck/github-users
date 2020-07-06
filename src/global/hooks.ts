@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import useSWR, { ConfigInterface } from 'swr';
+import { UsersGetByUsernameResponseData } from '@octokit/types';
 
 import { fetchUser } from './api';
-import { UserData } from './types';
 import { usernameValidation } from './utils';
 
 type FetchUserReturn = {
-  userData: UserData;
+  userData: UsersGetByUsernameResponseData;
   isLoading: boolean;
   isError: Error;
   isValidInput: boolean;
