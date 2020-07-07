@@ -4,7 +4,7 @@
 Tiny React SPA to search for users on GitHub and view their key information.
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-For detailed information about project structure, process, tools and thoughts, please read the [Documentation.md](docs/documentation.md) file.
+For detailed information about project structure, process, tools and thoughts, please read the [documentation.md](docs/documentation.md) file.
 
 ## 🚀 Start It
 
@@ -48,9 +48,11 @@ Try to fix automatically with:
 `npm run fix:fix` or `yarn fix:css`
 
 ## ✅ Test It 
+Launches the test runner in the interactive watch mode:
 `npm test` or `yarn test`
 
-Launches the test runner in the interactive watch mode.
+Show the test coverage:
+`npm run test:coverage` or `yarn test:coverage`
 
 ## 🔨 Build It, 🛳 Ship It
 `npm run build` or `yarn build`
