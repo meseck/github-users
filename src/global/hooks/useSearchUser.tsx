@@ -26,7 +26,13 @@ export const useSearchUser = (
   const { data, error } = useSWR(
     validInput ? [validInput, currentPage, entriesPerPage] : null,
     searchUser,
-    options
+    {
+      // Prevents call to API after page is focused or user is reconnected and also retries on errors (good for development)
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      shouldRetryOnError: false,
+      ...options,
+    }
   );
 
   // Input validation

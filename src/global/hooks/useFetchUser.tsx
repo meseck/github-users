@@ -14,7 +14,13 @@ export const useFetchUser = (
   options?: ConfigInterface
 ): Return => {
   // Use useSWR Hook for fetching data (client-side)
-  const { data, error } = useSWR(username, fetchUser, options);
+  const { data, error } = useSWR(username, fetchUser, {
+    // Prevents call to API after page is focused or user is reconnected and also retries on errors (good for development)
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    shouldRetryOnError: false,
+    ...options,
+  });
 
   return {
     userData: data,

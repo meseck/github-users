@@ -51,12 +51,7 @@ const SearchUser: React.FC = () => {
     isLoading,
     isValidInput,
     validationErrorMsg,
-  } = useSearchUser(debouncedSearchInput, currentPage, entriesPerPage, {
-    // Prevents call to API after page is focused or user is reconnected and also retries on errors (good for development)
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-    shouldRetryOnError: false,
-  });
+  } = useSearchUser(debouncedSearchInput, currentPage, entriesPerPage);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchInput(event.target.value);
