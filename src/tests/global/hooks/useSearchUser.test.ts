@@ -46,7 +46,7 @@ describe('useSearchUser', function () {
     expect(result.current.isError).toBe(undefined);
   });
 
-  it('it should check if input is invalid and set isValidInput to false', async () => {
+  it('should check if input is invalid and set isValidInput to false', async () => {
     const { result } = renderHook(() =>
       // Pass { dedupingInterval: 0 } as option to prevent caching
       useSearchUser('-invalid-username-', 1, 10, { dedupingInterval: 0 })
@@ -56,7 +56,7 @@ describe('useSearchUser', function () {
     expect(result.current.validationErrorMsg).not.toBe('Invalid username');
   });
 
-  it('it should return different data when new page is fetched', async () => {
+  it('should return different data when new page is fetched', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
       // Pass { dedupingInterval: 0 } as option to prevent caching
       useSearchUser('user', 2, 10, { dedupingInterval: 0 })
@@ -68,7 +68,7 @@ describe('useSearchUser', function () {
     expect(result.current.searchData.items).toBe('different');
   });
 
-  it('it should adjust the number of items that are returned to the per-page request option', async () => {
+  it('should adjust the number of items that are returned to the per-page request option', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
       // Pass { dedupingInterval: 0 } as option to prevent caching
       useSearchUser('user', 1, 10, { dedupingInterval: 0 })
@@ -80,7 +80,7 @@ describe('useSearchUser', function () {
     expect(result.current.searchData.items.length).toBe(10);
   });
 
-  it('it should return an empty items array when no user was found', async () => {
+  it('should return an empty items array when no user was found', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
       // Pass { dedupingInterval: 0 } as option to prevent caching
       useSearchUser('unknown-user', 1, 10, { dedupingInterval: 0 })

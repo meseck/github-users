@@ -38,21 +38,21 @@ describe('API', () => {
       expect(searchData.items).not.toBeNull();
     });
 
-    it('it should return different data when new page is fetched', async () => {
+    it('should return different data when new page is fetched', async () => {
       const searchData = await searchUser('user', 2, 10);
 
       expect(searchData.items).not.toBeNull();
       expect(searchData.items).toBe('different');
     });
 
-    it('it should adjust the number of items that are returned to the per-page request option', async () => {
+    it('should adjust the number of items that are returned to the per-page request option', async () => {
       const searchData = await searchUser('user', 1, 10);
 
       expect(searchData.items).not.toBeNull();
       expect(searchData.items.length).toBe(10);
     });
 
-    it('it should return an empty items array when no user was found', async () => {
+    it('should return an empty items array when no user was found', async () => {
       const searchData = await searchUser('unknown-user', 1, 10);
 
       expect(searchData.items.length).toBe(0);
