@@ -1,7 +1,8 @@
-import { act, renderHook } from '@testing-library/react-hooks';
-import { server } from '../../setupMockServer';
+import { renderHook } from '@testing-library/react-hooks';
 import { cache } from 'swr';
 import { rest } from 'msw';
+
+import { server } from '../../setupMockServer';
 import { useFetchUser } from '../../../global/hooks/useFetchUser';
 
 // Start mock server before all tests begins
@@ -17,26 +18,21 @@ describe('useFetchUser', () => {
   it('should handle the argument as a request parameters and return data', async () => {
     const { result, waitForNextUpdate } = renderHook(() =>
       // Pass { dedupingInterval: 0 } as option to prevent caching
-      useFetchUser('fools-mate', { dedupingInterval: 0 })
+      useFetchUser('user', { dedupingInterval: 0 })
     );
 
     // Wait for async useFetchUser Hook to be fulfilled | rejected
     await waitForNextUpdate();
 
-    act(() => {
-      cache.clear();
-    });
-
     expect(result.current.userData).toStrictEqual({
-      login: 'fools-mate',
-      name: "Fool's Mate",
+      login: 'user',
     });
   });
 
-  it('should set isLoading correctly when data is still fetching and no error appeared', async () => {
+  it('should set states correctly when data is still fetching and no error appeared', async () => {
     const { result } = renderHook(() =>
       // Pass { dedupingInterval: 0 } as option to prevent caching
-      useFetchUser('fools-mate', { dedupingInterval: 0 })
+      useFetchUser('user', { dedupingInterval: 0 })
     );
 
     expect(result.current.isLoading).toBe(true);
@@ -44,20 +40,17 @@ describe('useFetchUser', () => {
     expect(result.current.isError).toBe(undefined);
   });
 
-  it('should return an Error when user was not found', async () => {
+  it('should set isError when user was not found or connect failed', async () => {
     server.use(
       // Setup request handler to response with status: 404 - Not Found
-      rest.get(
-        'https://api.github.com/users/non-existent-user',
-        (req, res, ctx) => {
-          return res(ctx.status(404));
-        }
-      )
+      rest.get('https://api.github.com/users/unknown-user', (req, res, ctx) => {
+        return res(ctx.status(404));
+      })
     );
 
     const { result, waitForNextUpdate } = renderHook(() =>
       // Pass { dedupingInterval: 0 } as option to prevent caching
-      useFetchUser('non-existent-user', { dedupingInterval: 0 })
+      useFetchUser('unknown-user', { dedupingInterval: 0 })
     );
 
     // Wait for async useFetchUser Hook to be fulfilled | rejected
