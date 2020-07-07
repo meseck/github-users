@@ -22,7 +22,7 @@ export const server = setupServer(
   }),
 
   // Set request handler for /search/users endpoint
-  rest.get('https://api.github.com/search/*', (req, res, ctx) => {
+  rest.get('https://api.github.com/search/users', (req, res, ctx) => {
     const query = req.url.searchParams.get('q').replace(/ in:login/, '');
     const perPage = +req.url.searchParams.get('per_page');
     const page = +req.url.searchParams.get('page');
