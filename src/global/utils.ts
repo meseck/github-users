@@ -11,3 +11,10 @@ export const usernameValidation = (username: string): string => {
   }
   return 'valid';
 };
+
+export const calculateNumberOfPages = (
+  entries: number,
+  entriesPerPage: number
+): number => {
+  return Math.ceil(entries / entriesPerPage);
+};

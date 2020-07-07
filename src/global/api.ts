@@ -20,14 +20,17 @@ export const fetchUser = async (
 };
 
 export const searchUser = async (
-  username: string
+  username: string,
+  currentPage: number,
+  entriesPerPage: number
 ): Promise<SearchUsersResponseData> => {
   // Fetch data from GitHub API with @octokit/request
   try {
     const result = await request('GET /search/users', {
       q: `${username}+in:login`,
       accept: 'application/vnd.github.v3+json',
-      per_page: 10,
+      per_page: entriesPerPage,
+      page: currentPage,
     });
     return result.data;
   } catch (error) {

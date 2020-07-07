@@ -1,6 +1,7 @@
 import { SearchUsersResponseData } from '@octokit/types';
 import useSWR, { ConfigInterface } from 'swr';
 import { useEffect, useState } from 'react';
+
 import { searchUser } from '../api';
 import { usernameValidation } from '../utils';
 
@@ -14,13 +15,15 @@ type Return = {
 
 export const useSearchUser = (
   username: string,
+  currentPage: number,
+  entriesPerPage: number,
   options?: ConfigInterface
 ): Return => {
   const [validInput, setValidInput] = useState('');
   const [validationErrorMsg, setValidationErrorMsg] = useState('');
   // Use useSWR Hook for fetching data (client-side)
   const { data, error } = useSWR(
-    validInput ? validInput : null,
+    validInput ? [validInput, currentPage, entriesPerPage] : null,
     searchUser,
     options
   );
