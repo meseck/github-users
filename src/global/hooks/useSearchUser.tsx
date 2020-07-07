@@ -21,6 +21,7 @@ export const useSearchUser = (
 ): Return => {
   const [validInput, setValidInput] = useState('');
   const [validationErrorMsg, setValidationErrorMsg] = useState('');
+
   // Use useSWR Hook for fetching data (client-side)
   const { data, error } = useSWR(
     validInput ? [validInput, currentPage, entriesPerPage] : null,

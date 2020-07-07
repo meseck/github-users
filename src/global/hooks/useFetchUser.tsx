@@ -1,5 +1,6 @@
 import { UsersGetByUsernameResponseData } from '@octokit/types';
 import useSWR, { ConfigInterface } from 'swr';
+
 import { fetchUser } from '../api';
 
 type Return = {
