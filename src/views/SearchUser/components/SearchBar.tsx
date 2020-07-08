@@ -11,6 +11,8 @@ const Container = styled.div`
 
   & label {
     margin-right: 1rem;
+    font-size: 1.22rem;
+    font-weight: 400;
   }
 `;
 
