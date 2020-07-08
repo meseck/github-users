@@ -1,4 +1,9 @@
 import { SearchUsersResponseData } from '@octokit/types';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  margin: 2rem 0;
+`;
 
 type Props = {
   searchData: SearchUsersResponseData;
@@ -14,7 +19,7 @@ const SearchInfoMsg = ({
   validationErrorMsg,
 }: Props): JSX.Element => {
   return (
-    <div>
+    <Container>
       {isValidInput && isLoading && <p>Searching..</p>}
       {!isValidInput && <p>{validationErrorMsg}</p>}
       {!isLoading && searchData.total_count !== 0 && (
@@ -25,7 +30,7 @@ const SearchInfoMsg = ({
           information.
         </p>
       )}
-    </div>
+    </Container>
   );
 };
 
