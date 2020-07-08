@@ -10,4 +10,15 @@ html {
 
 body {
   background-color: #2d5aaa;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
 }
+
+h1 {
+  font-weight: 600;
+}
+
+h2 {
+  font-weight: 400;
+}
+
