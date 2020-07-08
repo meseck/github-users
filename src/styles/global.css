@@ -12,13 +12,16 @@ body {
   background-color: #2d5aaa;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 18px;
+  font-weight: 300;
 }
 
 h1 {
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 h2 {
-  font-weight: 400;
+  font-size: 1.33rem;
+  font-weight: 300;
 }
 

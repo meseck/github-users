@@ -9,12 +9,10 @@ const Container = styled.div`
 
 const FullName = styled.h1`
   margin: 0;
-  font-weight: 600;
 `;
 
 const LoginName = styled.h2`
   margin: 0;
-  font-weight: 400;
 `;
 
 type Props = {

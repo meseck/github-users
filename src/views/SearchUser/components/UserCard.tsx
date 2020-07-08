@@ -39,7 +39,7 @@ const ProfilePicture = styled.img`
 
 const Username = styled.span`
   margin: 1rem 0;
-  font-size: 1rem;
+  font-size: 1.11rem;
 `;
 
 type Props = {
