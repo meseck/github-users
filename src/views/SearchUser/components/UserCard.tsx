@@ -37,7 +37,11 @@ type Props = {
 
 const UserCard = ({ user }: Props): JSX.Element => {
   return (
-    <Link href={`/users/${user.login}`}>
+    <Link
+      prefetch={true}
+      href={'/users/[username]'}
+      as={`/users/${user.login}`}
+    >
       <Container>
         <ProfilePicture src={user.avatar_url} alt="Profile picture" />
         <Username>{user.login}</Username>
