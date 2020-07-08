@@ -37,7 +37,7 @@ export const useSearchUser = (
 
   // Input validation
   useEffect(() => {
-    if (username) {
+    if (username || username === '') {
       if (usernameValidation(username) !== 'valid') {
         setValidationErrorMsg(usernameValidation(username));
         setValidInput('');
