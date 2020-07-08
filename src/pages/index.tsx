@@ -7,7 +7,7 @@ const Home = (): JSX.Element => {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Search | GitHub Users</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>

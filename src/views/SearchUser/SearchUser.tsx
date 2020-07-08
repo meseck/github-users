@@ -75,7 +75,7 @@ const SearchUser: React.FC = () => {
 
   return (
     <>
-      <Title>GitHub Username Search</Title>
+      <Title>GitHub Users</Title>
       <SearchBar
         onChange={handleChange}
         searchInput={searchInput}

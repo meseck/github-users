@@ -34,13 +34,17 @@ const User = (): JSX.Element => {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>
+          {!isLoading
+            ? `${userData.login}'s Profile | GitHub Users`
+            : 'User was not found.'}
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
         <Card>
           {userData && <ShowUser userData={userData} />}
-          {isError && !validInput && (
+          {!validInput && (
             <>
               <h1>This is not valid GitHub username.</h1>
               <p>The GitHub username constraints are:</p>
