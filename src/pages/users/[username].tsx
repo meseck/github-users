@@ -39,7 +39,6 @@ const User = (): JSX.Element => {
       </Head>
       <Main>
         <Card>
-          {isLoading && !isError && validInput && <h1>Is loading...</h1>}
           {userData && <ShowUser userData={userData} />}
           {isError && !validInput && (
             <>
