@@ -1,35 +1,16 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
 
-import { useSearchUser } from '../global/hooks/useSearchUser';
-import { useDebounceInput } from '../global/hooks/useDebounceInput';
-import { calculateNumberOfPages } from '../global/utils';
+import { useSearchUser } from '../../global/hooks/useSearchUser';
+import { useDebounceInput } from '../../global/hooks/useDebounceInput';
+import { calculateNumberOfPages } from '../../global/utils';
 
-const InputField = styled.input`
-  padding: 0.31rem 0.44rem;
-  margin: 1rem;
-  font-size: 1rem;
-  border: 1px solid lightgrey;
-  border-radius: 4px;
-`;
-
-const ProfilePicture = styled.img`
-  width: 100px;
-  height: auto;
-  border-radius: 100%;
-`;
-
-const PageNavigationButtons = styled.button`
-  padding: 0.31rem 0.44rem;
-  border: none;
-  border-radius: 4px;
-
-  &.disabled {
-    color: grey;
-    pointer-events: none;
-    background-color: lightgrey;
-  }
-`;
+import UserCard from './components/UserCard';
+import PageNavigation from './components/PageNavigation';
+import Title from '../../components/Title';
+import SearchBar from './components/SearchBar';
+import SearchInformation from './components/SearchInformation';
+import UserCardContainer from './components/UserCardsContainer';
+import Card from '../../containers/Card';
 
 const SearchUser: React.FC = () => {
   // GitHub API has a maximum of 100 on the /search/users endpoint
@@ -94,14 +75,12 @@ const SearchUser: React.FC = () => {
   }, [searchData]);
 
   return (
-    <div>
-      <label htmlFor="search-field">Search: </label>
-      <InputField
-        id="search-field"
-        name="Search"
-        ref={searchInputRef}
+    <Card>
+      <Title>GitHub Username Search</Title>
+      <SearchBar
         onChange={handleChange}
-        placeholder={!searchInput ? 'Please enter a username' : undefined}
+        searchInput={searchInput}
+        searchInputRef={searchInputRef}
       />
       {searchInput && isLoading && isValidInput && <p>Searching..</p>}
       {!isValidInput && <p>{validationErrorMsg}</p>}
@@ -116,41 +95,21 @@ const SearchUser: React.FC = () => {
         </>
       )}
       {!isLoading && !isError && searchData.total_count !== 0 && (
-        <>
-          <p>
-            {searchData.total_count > 1000 ? '1000' : searchData.total_count}{' '}
-            {searchData.total_count > 1 ? 'users' : 'user'} was found. Click on{' '}
-            {searchData.total_count > 1 ? 'a' : 'the'} user to get more
-            information.
-          </p>
-          {searchData.items.map((user) => {
-            return (
-              <div key={user.id}>
-                <p>
-                  <ProfilePicture src={user.avatar_url} alt="Profile picture" />
-                  <a href={`/users/${user.login}`}>{user.login}</a>
-                </p>
-              </div>
-            );
-          })}
-          <PageNavigationButtons
-            id="previous-page"
-            onClick={handlePageNavigation}
-            className={currentPage === 1 ? 'disabled' : null}
-          >
-            Previous
-          </PageNavigationButtons>{' '}
-          {currentPage} / {numberOfPages}{' '}
-          <PageNavigationButtons
-            id="next-page"
-            onClick={handlePageNavigation}
-            className={currentPage === numberOfPages ? 'disabled' : null}
-          >
-            Next
-          </PageNavigationButtons>
-        </>
+        <section>
+          <SearchInformation searchData={searchData} />
+          <UserCardContainer>
+            {searchData.items.map((user) => {
+              return <UserCard key={user.id} user={user} />;
+            })}
+          </UserCardContainer>
+          <PageNavigation
+            onPageNavigation={handlePageNavigation}
+            currentPage={currentPage}
+            numberOfPages={numberOfPages}
+          />
+        </section>
       )}
-    </div>
+    </Card>
   );
 };
 

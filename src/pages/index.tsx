@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import SearchUser from '../components/SearchUser';
+import SearchUser from '../views/SearchUser/SearchUser';
+import Main from '../containers/Main';
 
 const Home = (): JSX.Element => {
   return (
@@ -8,7 +9,7 @@ const Home = (): JSX.Element => {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>{<SearchUser />}</main>
+      <Main>{<SearchUser />}</Main>
     </div>
   );
 };
