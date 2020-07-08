@@ -12,8 +12,10 @@
     │  ├── 📂 assets
     │  │  ├── 📁 icons
     │  │  └── 📁 images
+    │  │  └── 📁 images
     │  ├── 📁 components
     │  ├── 📁 global
+    │  │  └── 📁 hooks
     │  ├── 📁 pages
     │  │  ├── 📂 users
     │  │  │   └── 📃 [username].ts (dynamic route)
@@ -50,16 +52,16 @@ Here a small comparison:
 ## 🔴 Gotchas
 
 ### Testing React Hooks
+<https://github.com/testing-library/react-hooks-testing-library>
 
 You can only call hooks from function components or other hooks.  
 
 It can be quite difficult to wrap the Hook around a Component, so the Project uses the react-hooks-testing-library to do the hard work for us. 🎉
 
-<https://github.com/testing-library/react-hooks-testing-library>
 
 ### Testing asynchronous React Hooks with react-hooks-testing-library
 
-Get the utility `waitForNextUpdate()` from th renderHook function - example from the project:  
+Get the utility `waitForNextUpdate()` from the renderHook function - example from the project:  
 ```
 const {result, waitForNextUpdate()} = renderHook(() => useFetchUser('fools-mate'))`
 ```
@@ -91,18 +93,32 @@ await act(async () => {
   });
 ```
 
-### Debouncing the SWR custom hook
+### SWR hook
+<https://swr.vercel.app/docs/conditional-fetching>
+<https://swr.vercel.app/docs/options>
 
-Don't forget to add a condition to the hook so SWR won't start a request at every render, or you will be temporarily blocked by the API...
+Don't forget to add conditions to hooks so SWR won't start a request at every render, or you will be temporarily blocked by the API in no time...
 ```
 const { userData, isError, isLoading } = useFetchUser(
-  debouncedSearchQuery ? debouncedSearchQuery : null
+  debouncedSearchInput ? debouncedSearchInput : null
 );
-
 ```
 
-[React Hooks Testing Library - Advance Hook - Async](https://react-hooks-testing-library.com/usage/advanced-hooks#async)  
-[React Hooks Testing Library - API - Async Utilities](https://react-hooks-testing-library.com/reference/api#async-utilities)
+In development also pass this options to SWR to prevent API calls:
+```
+{
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    shouldRetryOnError: false,
+}
+```
+
+### Prevent reload when linked to Dynamic Route
+<https://nextjs.org/docs/routing/introduction>
+
+If you are linking to a Dynamic Route, you must specify the prop "as" of the Next.js Link and set href to the \[slug\]:  
+```<Link href="/blog/[slug]" as={`/blog/${post.slug}`}>```
+
 
 ## 🎉 Acknowledgements 
 - ***Francesco Agnoletto*** for this great article about:  
