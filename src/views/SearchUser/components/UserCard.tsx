@@ -14,15 +14,27 @@ const Container = styled.div`
   transition: all 200ms ease-in-out;
 
   :hover {
-    border: 1px solid lightblue;
+    border: 1px solid silver;
     box-shadow: 0 1px 1px lightgrey;
     transform: scale(1.025);
   }
 `;
 
+const ProfilePictureWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  background-color: lightgrey;
+`;
+
 const ProfilePicture = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: auto;
+  border-radius: 4px 4px 0 0;
 `;
 
 const Username = styled.span`
@@ -43,7 +55,9 @@ const UserCard = ({ user }: Props): JSX.Element => {
       as={`/users/${user.login}`}
     >
       <Container>
-        <ProfilePicture src={user.avatar_url} alt="Profile picture" />
+        <ProfilePictureWrapper>
+          <ProfilePicture src={user.avatar_url} alt="Profile picture" />
+        </ProfilePictureWrapper>
         <Username>{user.login}</Username>
       </Container>
     </Link>
