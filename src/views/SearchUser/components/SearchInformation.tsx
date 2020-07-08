@@ -1,16 +1,31 @@
 import { SearchUsersResponseData } from '@octokit/types';
 
-interface Props {
+type Props = {
   searchData: SearchUsersResponseData;
-}
+  isValidInput: boolean;
+  isLoading: boolean;
+  validationErrorMsg: string;
+};
 
-const SearchInformation = ({ searchData }: Props): JSX.Element => {
+const SearchInformation = ({
+  searchData,
+  isValidInput,
+  isLoading,
+  validationErrorMsg,
+}: Props): JSX.Element => {
   return (
-    <p>
-      {searchData.total_count > 1000 ? '1000' : searchData.total_count}{' '}
-      {searchData.total_count > 1 ? 'users' : 'user'} was found. Click on{' '}
-      {searchData.total_count > 1 ? 'a' : 'the'} user to get more information.
-    </p>
+    <div>
+      {isValidInput && isLoading && <p>Searching..</p>}
+      {!isValidInput && <p>{validationErrorMsg}</p>}
+      {!isLoading && searchData.total_count !== 0 && (
+        <p>
+          {searchData.total_count > 1000 ? '1000' : searchData.total_count}{' '}
+          {searchData.total_count > 1 ? 'users' : 'user'} was found. Click on{' '}
+          {searchData.total_count > 1 ? 'a' : 'the'} user to get more
+          information.
+        </p>
+      )}
+    </div>
   );
 };
 

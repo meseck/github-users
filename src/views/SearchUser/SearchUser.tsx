@@ -81,21 +81,16 @@ const SearchUser: React.FC = () => {
         searchInput={searchInput}
         searchInputRef={searchInputRef}
       />
-      {searchInput && isLoading && isValidInput && <p>Searching..</p>}
-      {!isValidInput && <p>{validationErrorMsg}</p>}
-      {searchData && searchData.total_count === 0 && isValidInput && (
-        <>
-          <p>
-            No one was found.{' '}
-            <a href="/" onClick={handleClick}>
-              Try again
-            </a>
-          </p>
-        </>
-      )}
-      {!isLoading && !isError && searchData.total_count !== 0 && (
+      <div>
+        <SearchInformation
+          searchData={searchData}
+          isValidInput={isValidInput}
+          isLoading={isLoading}
+          validationErrorMsg={validationErrorMsg}
+        />
+      </div>
+      {!isLoading && searchData.total_count !== 0 && (
         <section>
-          <SearchInformation searchData={searchData} />
           <UserCardContainer>
             {searchData.items.map((user) => {
               return <UserCard key={user.id} user={user} />;
@@ -107,6 +102,14 @@ const SearchUser: React.FC = () => {
             numberOfPages={numberOfPages}
           />
         </section>
+      )}
+      {!isLoading && isValidInput && searchData.total_count === 0 && (
+        <p>
+          No one with this username was found on GitHub.{' '}
+          <a href="/" onClick={handleClick}>
+            Try again
+          </a>
+        </p>
       )}
     </>
   );
