@@ -1,21 +1,30 @@
 import styled from 'styled-components';
 import { MouseEvent } from 'react';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const Container = styled.nav`
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   margin-top: 1rem;
+
+  svg {
+    margin-bottom: -5px;
+  }
 `;
+
 const Button = styled.button`
   padding: 0.31rem 0.44rem;
+  font-size: 1.56rem;
+  background-color: rgba(0, 0, 0, 0);
   border: none;
   border-radius: 4px;
 
   &.disabled {
-    color: grey;
+    color: #d7d7d7;
     pointer-events: none;
-    background-color: lightgrey;
+    background-color: rgba(0, 0, 0, 0);
   }
 `;
 
@@ -34,18 +43,20 @@ const PageNavigation = ({
     <Container>
       <Button
         id="previous-page"
+        name="Go to previous page"
         onClick={onPageNavigation}
         className={currentPage === 1 ? 'disabled' : null}
       >
-        Previous
+        <IoIosArrowBack />
       </Button>{' '}
       {currentPage} / {numberOfPages}{' '}
       <Button
         id="next-page"
+        name="Go to next page"
         onClick={onPageNavigation}
         className={currentPage === numberOfPages ? 'disabled' : null}
       >
-        Next
+        <IoIosArrowForward />
       </Button>
     </Container>
   );
