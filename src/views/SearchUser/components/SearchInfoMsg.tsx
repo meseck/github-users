@@ -1,8 +1,17 @@
 import { SearchUsersResponseData } from '@octokit/types';
 import styled from 'styled-components';
+import { IoIosWarning } from 'react-icons/io';
 
 const Container = styled.div`
   margin: 2rem 0;
+`;
+
+const ErrorMsg = styled.p`
+  color: indianred;
+
+  svg {
+    margin-bottom: -3px;
+  }
 `;
 
 type Props = {
@@ -21,7 +30,11 @@ const SearchInfoMsg = ({
   return (
     <Container>
       {isValidInput && isLoading && <p>Searching..</p>}
-      {!isValidInput && <p>{validationErrorMsg}</p>}
+      {validationErrorMsg && (
+        <ErrorMsg>
+          <IoIosWarning /> {validationErrorMsg}
+        </ErrorMsg>
+      )}
       {!isLoading && searchData.total_count !== 0 && (
         <p>
           {searchData.total_count > 1000 ? '1000' : searchData.total_count}{' '}
