@@ -10,7 +10,6 @@ import Title from '../../components/Title';
 import SearchBar from './components/SearchBar';
 import SearchInformation from './components/SearchInformation';
 import UserCardContainer from './components/UserCardsContainer';
-import Card from '../../containers/Card';
 
 const SearchUser: React.FC = () => {
   // GitHub API has a maximum of 100 on the /search/users endpoint
@@ -75,7 +74,7 @@ const SearchUser: React.FC = () => {
   }, [searchData]);
 
   return (
-    <Card>
+    <>
       <Title>GitHub Username Search</Title>
       <SearchBar
         onChange={handleChange}
@@ -109,7 +108,7 @@ const SearchUser: React.FC = () => {
           />
         </section>
       )}
-    </Card>
+    </>
   );
 };
 

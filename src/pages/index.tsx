@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import SearchUser from '../views/SearchUser/SearchUser';
 import Main from '../containers/Main';
+import Card from '../containers/Card';
 
 const Home = (): JSX.Element => {
   return (
@@ -9,7 +10,9 @@ const Home = (): JSX.Element => {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Main>{<SearchUser />}</Main>
+      <Main>
+        <Card>{<SearchUser />}</Card>
+      </Main>
     </div>
   );
 };
