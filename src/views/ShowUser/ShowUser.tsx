@@ -15,8 +15,8 @@ const Container = styled.div`
 const ProfilePicture = styled.img`
   width: 250px;
   height: 250px;
-  border: 1px solid lightblue;
-  border-radius: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
 `;
 
 const Info = styled.div`

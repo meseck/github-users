@@ -7,7 +7,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  width: 100%;
   cursor: pointer;
   border: 1px solid lightgrey;
   border-radius: 4px;
@@ -21,12 +21,12 @@ const Container = styled.div`
 `;
 
 const ProfilePicture = styled.img`
-  width: 100px;
-  height: 100px;
-  border-radius: 100%;
+  width: 100%;
+  height: auto;
 `;
+
 const Username = styled.span`
-  margin-top: 1rem;
+  margin: 1rem 0;
   font-size: 1rem;
 `;
 
