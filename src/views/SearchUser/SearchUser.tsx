@@ -8,7 +8,7 @@ import UserCard from './components/UserCard';
 import PageNavigation from './components/PageNavigation';
 import Title from '../../components/Title';
 import SearchBar from './components/SearchBar';
-import SearchInformation from './components/SearchInformation';
+import SearchInfoMsg from './components/SearchInfoMsg';
 import UserCardContainer from './components/UserCardsContainer';
 
 const SearchUser: React.FC = () => {
@@ -82,7 +82,7 @@ const SearchUser: React.FC = () => {
         searchInputRef={searchInputRef}
       />
       <div>
-        <SearchInformation
+        <SearchInfoMsg
           searchData={searchData}
           isValidInput={isValidInput}
           isLoading={isLoading}

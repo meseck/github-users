@@ -7,7 +7,7 @@ type Props = {
   validationErrorMsg: string;
 };
 
-const SearchInformation = ({
+const SearchInfoMsg = ({
   searchData,
   isValidInput,
   isLoading,
@@ -29,4 +29,4 @@ const SearchInformation = ({
   );
 };
 
-export default SearchInformation;
+export default SearchInfoMsg;
