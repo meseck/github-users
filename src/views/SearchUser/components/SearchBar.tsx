@@ -1,5 +1,6 @@
 import { ChangeEvent, MutableRefObject } from 'react';
 import styled from 'styled-components';
+import { IoMdSearch } from 'react-icons/io';
 
 import InputField from '../../../components/InputField';
 
@@ -9,7 +10,12 @@ const Container = styled.div`
   justify-content: space-between;
   width: 100%;
 
+  svg {
+    margin-right: 0.28rem;
+  }
+
   & label {
+    display: block;
     margin-right: 1rem;
     font-size: 1.22rem;
     font-weight: 400;
@@ -29,6 +35,7 @@ const SearchBar = ({
 }: Props): JSX.Element => {
   return (
     <Container>
+      <IoMdSearch />
       <label htmlFor="search-field">Search:</label>
       <InputField
         id="search-field"

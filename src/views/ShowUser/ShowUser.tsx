@@ -1,6 +1,7 @@
 import { UsersGetByUsernameResponseData } from '@octokit/types';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { IoIosArrowBack } from 'react-icons/io';
 
 import UserInfo from './components/UserInfo';
 import Username from './components/Username';
@@ -10,6 +11,10 @@ const Container = styled.div`
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
+
+  svg {
+    margin-bottom: -3px;
+  }
 `;
 
 const ProfilePicture = styled.img`
@@ -34,6 +39,7 @@ const ShowUser = ({ userData }: Props): JSX.Element => {
       <Info>
         <Username userData={userData} />
         <UserInfo userData={userData} />
+        <IoIosArrowBack />
         <Link href="/">Go back</Link>
       </Info>
     </Container>
