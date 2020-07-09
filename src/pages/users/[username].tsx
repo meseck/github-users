@@ -14,7 +14,7 @@ const User = (): JSX.Element => {
   return (
     <div>
       <Head>
-        <title>{username}&#039; Profile | GitHub Users</title>
+        <title>{username} - Profile | GitHub Users</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
