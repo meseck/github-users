@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.section`
@@ -32,10 +33,8 @@ const Inspectocat = styled.img`
   }
 `;
 
-import React from 'react';
-
 type Props = {
-  children: JSX.Element;
+  children: ReactNode;
 };
 
 const Card = ({ children }: Props): JSX.Element => {
