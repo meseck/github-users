@@ -11,7 +11,9 @@ const Home = (): JSX.Element => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-        <Card>{<SearchUser />}</Card>
+        <Card>
+          <SearchUser />
+        </Card>
       </Main>
     </div>
   );
