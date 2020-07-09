@@ -86,10 +86,11 @@ const SearchUser: React.FC = () => {
           searchData={searchData}
           isValidInput={isValidInput}
           isLoading={isLoading}
+          isError={isError}
           validationErrorMsg={validationErrorMsg}
         />
       </div>
-      {!isLoading && searchData.total_count !== 0 && (
+      {!isLoading && !isError && searchData.total_count !== 0 && (
         <section>
           <UserCardContainer>
             {searchData.items.map((user) => {
@@ -103,7 +104,7 @@ const SearchUser: React.FC = () => {
           />
         </section>
       )}
-      {!isLoading && isValidInput && searchData.total_count === 0 && (
+      {!isLoading && isValidInput && !isError && searchData.total_count === 0 && (
         <p>
           No one with this username was found on GitHub.{' '}
           <a href="/" onClick={handleClick}>

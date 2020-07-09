@@ -15,6 +15,10 @@ const Container = styled.div`
   svg {
     margin-bottom: -3px;
   }
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 const ProfilePicture = styled.img`
@@ -22,10 +26,18 @@ const ProfilePicture = styled.img`
   height: 250px;
   border: 1px solid lightgrey;
   border-radius: 4px;
+
+  @media (max-width: 450px) {
+    margin-top: -1.5rem;
+  }
 `;
 
 const Info = styled.div`
   margin-left: 2.5rem;
+
+  @media (max-width: 900px) {
+    margin: 2.5rem 0 0 0;
+  }
 `;
 
 type Props = {

@@ -18,6 +18,7 @@ type Props = {
   searchData: SearchUsersResponseData;
   isValidInput: boolean;
   isLoading: boolean;
+  isError: Error;
   validationErrorMsg: string;
 };
 
@@ -25,6 +26,7 @@ const SearchInfoMsg = ({
   searchData,
   isValidInput,
   isLoading,
+  isError,
   validationErrorMsg,
 }: Props): JSX.Element => {
   return (
@@ -35,7 +37,7 @@ const SearchInfoMsg = ({
           <IoIosWarning /> {validationErrorMsg}
         </ErrorMsg>
       )}
-      {!isLoading && searchData.total_count !== 0 && (
+      {!isLoading && !isError && searchData.total_count !== 0 && (
         <p>
           {searchData.total_count > 1000 ? '1000' : searchData.total_count}{' '}
           {searchData.total_count > 1 ? 'users' : 'user'} was found. Click on{' '}

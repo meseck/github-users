@@ -37,9 +37,15 @@ const ProfilePicture = styled.img`
   border-radius: 4px 4px 0 0;
 `;
 
-const Username = styled.span`
+const Username = styled.div`
+  width: 100%;
+  padding: 0 1rem;
   margin: 1rem 0;
+  overflow: hidden;
   font-size: 1.11rem;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 type Props = {

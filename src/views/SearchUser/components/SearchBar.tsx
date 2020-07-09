@@ -14,11 +14,21 @@ const Container = styled.div`
     margin-right: 0.28rem;
   }
 
-  & label {
+  label {
     display: block;
     margin-right: 1rem;
     font-size: 1.22rem;
     font-weight: 400;
+  }
+
+  @media (max-width: 390px) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    label,
+    svg {
+      margin-bottom: 1rem;
+    }
   }
 `;
 
