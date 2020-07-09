@@ -56,12 +56,12 @@ const UserInfo = ({ userData }: Props): JSX.Element => {
         <p>
           <IoLogoGithub /> Since {new Date(userData.created_at).getFullYear()}
         </p>
-        <p>
+        <div>
           <p>
             <IoMdPerson /> {userData.followers} followers · {userData.following}{' '}
             following
           </p>
-        </p>
+        </div>
       </AdditionalInfo>
     </Container>
   );
