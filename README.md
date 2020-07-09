@@ -1,10 +1,15 @@
 # Github Users - A Tech Task For Homeday 🏠
 
+![Screenshot](screenshot.png)
+
+
 ## 📝 Description
-Tiny React SPA to search for users on GitHub and view their key information.
+Fast and robust React SPA to search for users on GitHub and view their key information.
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-For detailed information about project structure, process, tools and thoughts, please read the [documentation.md](docs/documentation.md) file.
+For detailed information about project structure, tools, gotchas, thoughts and acknowledgements, please read the [documentation](docs/documentation.md).  
+To get an overview of the working process check the [tasks](docs/tasks.md) list.
+
 
 ## 🚀 Start It
 
@@ -28,6 +33,7 @@ For detailed information about project structure, process, tools and thoughts, p
 The project is now started in development mode. 
 If you want to deploy it, look below.
 
+
 ## 🔎 Check It
 
 ### TypeScript
@@ -47,12 +53,14 @@ Check for errors with:
 Try to fix automatically with:  
 `npm run fix:fix` or `yarn fix:css`
 
+
 ## ✅ Test It 
-Launches the test runner in the interactive watch mode:
+Launches the test runner in the interactive watch mode:  
 `npm test` or `yarn test`
 
-Show the test coverage:
+Show the test coverage:  
 `npm run test:coverage` or `yarn test:coverage`
+
 
 ## 🔨 Build It, 🛳 Ship It
 `npm run build` or `yarn build`

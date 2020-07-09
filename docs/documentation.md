@@ -1,53 +1,61 @@
 # Documentation
 
+
 ## 🏛 Project Structure
 
     📂 root
     ├── 📁 build
     ├── 📂 docs
     │  ├── 📁 images
-    │  └── 📃 markdown files..
+    │  └── markdown files..
     ├── 📁 public
+    │  └── image files...
     ├── 📁 src
-    │  ├── 📂 assets
-    │  │  ├── 📁 icons
-    │  │  └── 📁 images
-    │  │  └── 📁 images
     │  ├── 📁 components
+    │  ├── 📁 containers
     │  ├── 📁 global
-    │  │  └── 📁 hooks
+    │  │  ├── 📁 hooks
+    │  │  ├── api.ts
+    │  │  ├── types.ts
+    │  │  └── utils.ts
     │  ├── 📁 pages
     │  │  ├── 📂 users
-    │  │  │   └── 📃 [username].ts (dynamic route)
-    │  │  └── 🏠 index.ts
+    │  │  │   └── [username].tsx (dynamic route)
+    │  │  ├── _app.tsx (component to initialize pages)
+    │  │  └── 🏠 index.tsx
     │  ├── 📁 styles
-    │  └── 📁 tests
-    ├── 📃 .gitignore
-    ├── 📃 configs...
-    ├── 📃 package.json
-    └── 📃 README.md
+    │  ├── 📁 tests
+    │  └── 📂 views
+    │         │── 📂 SearchUser
+    │         │   ├── 📁 components
+    │         │   └── SearchUser.tsx
+    │         └── 📂 ShowUser
+    │             ├── 📁 components
+    │             └── ShowUser.tsx
+    ├── config files...
+    └── README.md
+
 
 ## 🛠 Tools
 
-### Next.js
+### [Next.js](https://nextjs.org/)
 The main reason why I choose Next.js is that unlike Gatsby, it's very good for dynamic content with the advantages of server-side rendering out of the box.
-At first, I thought about starting with CRA(create-react-app), but I didn't want to [eject](https://medium.com/curated-by-versett/dont-eject-your-create-react-app-b123c5247741) 
-the project or use another dependency(react-app-rewired) to configure Webpack.
+At first, I thought about starting with create-react-app, but I didn't want to [eject](https://medium.com/curated-by-versett/dont-eject-your-create-react-app-b123c5247741) 
+the project or use another dependency(react-app-rewired) to configure e.g. Webpack.
 
 Here a small comparison:
 ![Create-react-app vs Next.js vs Gastby](images/cra-next-gatsby-comparison.jpg)
 <https://coffeencoding.com/cra-vs-next-js-vs-gatsby/>
 
 ### Other Tools:
-- TypeScript
-- Prettier
-- Eslint
-- Stylelint
-- Jest
-- Styled components
-- Conventional Commits 
+- [TypeScript](https://www.typescriptlang.org)
+- [Prettier](https://prettier.io)
+- [Eslint](https://eslint.org)
+- [Stylelint](https://stylelint.io)
+- [Jest](https://jestjs.io)
+- [Styled components](https://styled-components.com)
+- [Conventional Commits](https://www.conventionalcommits.org)
 
-## 💭 Thoughts
 
 ## 🔴 Gotchas
 
@@ -56,8 +64,7 @@ Here a small comparison:
 
 You can only call hooks from function components or other hooks.  
 
-It can be quite difficult to wrap the Hook around a Component, so the Project uses the react-hooks-testing-library to do the hard work for us. 🎉
-
+It can be quite difficult to wrap the Hook around a Component, so the Project uses the react-hooks-testing-library to do the hard work. 🎉
 
 ### Testing asynchronous React Hooks with react-hooks-testing-library
 
@@ -120,8 +127,19 @@ If you are linking to a Dynamic Route, you must specify the prop "as" of the Nex
 ```<Link href="/blog/[slug]" as={`/blog/${post.slug}`}>```
 
 
+## 💭 Final thoughts
+
+My goal for this project was to prove my skills, but also to learn more about testing and to get to know the popular React framework Next.js.
+And of course to have fun.
+
+I still have problems writing good tests or sometimes just knowing how to start (async). But I have learned a lot, and some times it finally clicked. 
+In some places the project can be written a lot better, but overall I am very satisfied. I hope you enjoyed it too, and you had fun reading through it. 👍  
+
+
 ## 🎉 Acknowledgements 
 - ***Francesco Agnoletto*** for this great article about:  
 [How to setup NextJS with TypeScript and ESLint + Prettier](https://decodenatura.com/how-to-set-up-nextjs-typescript-eslint-prettier/)
 - ***Leigh Halliday*** that he made me aware of Mock Service Worker and offers a detailed tutorial about it:  
 [Don't Mock Fetch (or Axios): Use Mock Service Worker and Test Like a User](https://www.youtube.com/watch?v=v77fjkKQTH0)  
+- ***Kent C. Dodds*** for creating the react-testing-library and each blog post about tests:  
+[Blog](https://kentcdodds.com/blog/)  
