@@ -13,7 +13,6 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
       <IconContext.Provider value={{ className: 'react-icons' }}>
         <Component {...pageProps} />
       </IconContext.Provider>
-      k
     </ThemeProvider>
   );
 };
