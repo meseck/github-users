@@ -52,7 +52,9 @@ const ShowUser = ({ userData }: Props): JSX.Element => {
         <Username userData={userData} />
         <UserInfo userData={userData} />
         <IoIosArrowBack />
-        <Link href="/">Go back</Link>
+        <Link href="/">
+          <a>Go back</a>
+        </Link>
       </Info>
     </Container>
   );
