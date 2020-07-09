@@ -8,10 +8,6 @@ const Container = styled.div`
 
 const ErrorMsg = styled.p`
   color: indianred;
-
-  svg {
-    margin-bottom: -3px;
-  }
 `;
 
 type Props = {

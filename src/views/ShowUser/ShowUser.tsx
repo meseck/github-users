@@ -15,10 +15,6 @@ const Container = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
 
-  svg {
-    margin-bottom: -3px;
-  }
-
   a {
     font-weight: 400;
     color: black;

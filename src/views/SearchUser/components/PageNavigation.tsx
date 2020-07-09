@@ -8,10 +8,6 @@ const Container = styled.nav`
   justify-content: space-between;
   width: 100%;
   margin-top: 1rem;
-
-  svg {
-    margin-bottom: -5px;
-  }
 `;
 
 const Button = styled.button`
