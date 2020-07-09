@@ -16,6 +16,12 @@ const Container = styled.div`
     margin-bottom: -3px;
   }
 
+  a {
+    font-weight: 400;
+    color: black;
+    text-decoration: none;
+  }
+
   @media (max-width: 900px) {
     flex-direction: column;
   }
