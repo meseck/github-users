@@ -53,6 +53,7 @@ const SearchBar = ({
         ref={searchInputRef}
         onChange={onChange}
         placeholder={!searchInput ? 'Please enter a username' : undefined}
+        autoFocus
       />
     </Container>
   );

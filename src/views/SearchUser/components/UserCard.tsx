@@ -2,19 +2,22 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import { SearchUsersResponseData } from '@octokit/types';
 
-const Container = styled.div`
+const Container = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  padding: 0;
   cursor: pointer;
   border: 1px solid lightgrey;
   border-radius: 4px;
   transition: all 200ms ease-in-out;
 
-  :hover {
-    border: 1px solid silver;
+  :hover,
+  :focus {
+    border: 2px solid #2d5aaa;
+    outline: none;
     box-shadow: 0 1px 1px lightgrey;
     transform: scale(1.025);
   }

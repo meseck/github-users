@@ -25,6 +25,13 @@ h2 {
   font-weight: 300;
 }
 
+a:focus {
+  outline: none;
+  border: 2px solid #2d5aaa;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
 .react-icons {
   vertical-align: bottom;
 }

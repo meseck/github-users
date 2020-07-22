@@ -48,9 +48,13 @@ const SearchUser: React.FC = () => {
   const handlePageNavigation = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (event.currentTarget.id === 'next-page') {
-      setCurrentPage((prevState) => prevState + 1);
+      if (currentPage !== numberOfPages) {
+        setCurrentPage((prevState) => prevState + 1);
+      }
     } else {
-      setCurrentPage((prevState) => prevState - 1);
+      if (currentPage !== 1) {
+        setCurrentPage((prevState) => prevState - 1);
+      }
     }
   };
 

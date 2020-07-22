@@ -17,10 +17,20 @@ const Button = styled.button`
   border: none;
   border-radius: 4px;
 
+  &:focus {
+    border: 2px solid #2d5aaa;
+    outline: unset;
+  }
+
   &.disabled {
     color: #d7d7d7;
     pointer-events: none;
     background-color: rgba(0, 0, 0, 0);
+
+    &:focus {
+      border: 2px solid indianred;
+      outline: none;
+    }
   }
 `;
 
