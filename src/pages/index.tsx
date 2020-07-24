@@ -1,9 +1,10 @@
+import React from 'react';
 import Head from 'next/head';
 import SearchUser from '../views/SearchUser/SearchUser';
 import Main from '../containers/Main';
 import Card from '../containers/Card';
 
-const Home = (): JSX.Element => {
+const Home: React.FC = () => {
   return (
     <div className="container">
       <Head>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { IoIosArrowBack } from 'react-icons/io';
@@ -49,7 +49,7 @@ type Props = {
   username: string | string[];
 };
 
-const ShowUser = ({ username }: Props): JSX.Element => {
+const ShowUser: React.FC<Props> = ({ username }) => {
   const [validInput, setValidInput] = useState('');
   const { userData, isLoading, isError } = useFetchUser(validInput);
 

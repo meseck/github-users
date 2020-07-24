@@ -1,3 +1,4 @@
+import React from 'react';
 import { UsersGetByUsernameResponseData } from '@octokit/types';
 import styled from 'styled-components';
 
@@ -18,7 +19,7 @@ type Props = {
   userData: UsersGetByUsernameResponseData;
 };
 
-const Username = ({ userData }: Props): JSX.Element => {
+const Username: React.FC<Props> = ({ userData }) => {
   return (
     <Container>
       {userData.name ? (

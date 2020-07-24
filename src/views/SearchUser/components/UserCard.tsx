@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { SearchUsersResponseData } from '@octokit/types';
@@ -56,7 +57,7 @@ type Props = {
   user: SearchUsersResponseData['items'][0];
 };
 
-const UserCard = ({ user }: Props): JSX.Element => {
+const UserCard: React.FC<Props> = ({ user }) => {
   return (
     <Link href={'/users/[username]'} as={`/users/${user.login}`}>
       <Container>

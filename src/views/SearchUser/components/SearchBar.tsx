@@ -1,4 +1,4 @@
-import { ChangeEvent, MutableRefObject } from 'react';
+import React, { ChangeEvent, MutableRefObject } from 'react';
 import styled from 'styled-components';
 import { IoMdSearch } from 'react-icons/io';
 
@@ -38,11 +38,11 @@ interface Props {
   searchInputRef: MutableRefObject<HTMLInputElement>;
 }
 
-const SearchBar = ({
+const SearchBar: React.FC<Props> = ({
   onChange,
   searchInput,
   searchInputRef,
-}: Props): JSX.Element => {
+}) => {
   return (
     <Container>
       <IoMdSearch />

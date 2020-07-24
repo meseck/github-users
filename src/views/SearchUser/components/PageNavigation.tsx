@@ -1,5 +1,5 @@
+import React, { MouseEvent } from 'react';
 import styled from 'styled-components';
-import { MouseEvent } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const Container = styled.nav`
@@ -40,11 +40,11 @@ type Props = {
   numberOfPages: number;
 };
 
-const PageNavigation = ({
+const PageNavigation: React.FC<Props> = ({
   onPageNavigation,
   currentPage,
   numberOfPages,
-}: Props): JSX.Element => {
+}) => {
   return (
     <Container>
       <Button

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.section`
@@ -37,7 +37,7 @@ type Props = {
   children: ReactNode;
 };
 
-const Card = ({ children }: Props): JSX.Element => {
+const Card: React.FC<Props> = ({ children }) => {
   return (
     <>
       <Inspectocat src="/inspectocat.png" alt="Inspectocat" />

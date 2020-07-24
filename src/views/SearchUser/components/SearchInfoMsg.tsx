@@ -1,3 +1,4 @@
+import React from 'react';
 import { SearchUsersResponseData } from '@octokit/types';
 import styled from 'styled-components';
 import { IoIosWarning } from 'react-icons/io';
@@ -18,13 +19,13 @@ type Props = {
   validationErrorMsg: string;
 };
 
-const SearchInfoMsg = ({
+const SearchInfoMsg: React.FC<Props> = ({
   searchData,
   isValidInput,
   isLoading,
   isError,
   validationErrorMsg,
-}: Props): JSX.Element => {
+}) => {
   return (
     <Container>
       {isValidInput && isLoading && <p>Searching..</p>}

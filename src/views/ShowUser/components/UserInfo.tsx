@@ -1,3 +1,4 @@
+import React from 'react';
 import { UsersGetByUsernameResponseData } from '@octokit/types';
 import styled from 'styled-components';
 import {
@@ -28,7 +29,7 @@ const AdditionalInfo = styled.div`
   }
 `;
 
-const UserInfo = ({ userData }: Props): JSX.Element => {
+const UserInfo: React.FC<Props> = ({ userData }) => {
   return (
     <Container>
       {userData.bio && <Bio>{userData.bio.trim()}</Bio>}

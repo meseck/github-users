@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import { IoIosArrowBack } from 'react-icons/io';
 
@@ -7,7 +8,7 @@ type Props = {
   isError: Error;
 };
 
-const InfoMsg = ({ validInput, isLoading, isError }: Props): JSX.Element => {
+const InfoMsg: React.FC<Props> = ({ validInput, isLoading, isError }) => {
   return (
     <div>
       {!validInput && (
